@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.3: هالة متوهّجة حول قرص الصوت -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="radial"
+        android:gradientRadius="140"
+        android:startColor="#55FFB830"
+        android:centerColor="#22FFB830"
+        android:endColor="#00FFB830" />
+</shape>

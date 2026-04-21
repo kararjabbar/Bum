@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_encrypted_note.xml  (v1.4)
+    بطاقة ملاحظة في القسم المشفّر المنفصل.
+    • العنوان بارز في الأعلى — يوضّح الموضوع قبل فك التشفير.
+    • المحتوى لا يظهر في المعاينة (مقفل).
+    • شارات الصلاحية + زر الحذف.
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="?attr/bumBgCard"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeColor="?attr/bumBorder"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- سطر العنوان + زر الحذف -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔐"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:padding="7dp"
+                android:src="@drawable/ic_delete_outline"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="?attr/bumTextDim"
+                android:scaleType="centerInside"
+                android:contentDescription="حذف" />
+        </LinearLayout>
+
+        <!-- معاينة مقفلة -->
+        <TextView
+            android:id="@+id/tv_locked_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="🔒  محتوى مشفّر — اضغط للفتح بعد المصادقة"
+            android:textColor="?attr/bumTextSecondary"
+            android:textSize="12sp" />
+
+        <!-- سطر الشارات -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="?attr/bumTextDim" />
+
+            <TextView
+                android:id="@+id/tv_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textSize="11sp"
+                android:textColor="?attr/bumAmber" />
+
+            <TextView
+                android:id="@+id/tv_attachments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textSize="11sp"
+                android:textColor="?attr/bumTextDim"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_destroy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💥 تدمير بعد القراءة"
+                android:layout_marginStart="10dp"
+                android:textSize="11sp"
+                android:textColor="?attr/bumDanger"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- الخلفية الأساسية -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0A0A0F" />
+        </shape>
+    </item>
+
+    <!-- توهج أحمر خفي من الأسفل -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="60%"
+                android:centerX="0.5"
+                android:centerY="0.9"
+                android:startColor="#22FF4D2D"
+                android:endColor="#000000" />
+        </shape>
+    </item>
+
+    <!-- توهج أبيض خفيف من الوسط -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="40%"
+                android:centerX="0.5"
+                android:centerY="0.45"
+                android:startColor="#08FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+</layer-list>

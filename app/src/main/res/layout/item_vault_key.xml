@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  v1.2 (تحديث حسب طلب المستخدم):
+    • أيقونات (تعديل/حذف) بجانب العنوان نُقلت إلى اليسار (في RTL تكون في نهاية
+      السطر أي أقصى اليسار بصرياً)، بدل اليمين.
+    • أُضيفت أيقونات مساعدة لكل حقل:
+        - اليوزر      → ic_person_outline
+        - كلمة السر   → ic_secret
+        - الفئة       → ic_label_outline
+        - الملاحظة    → ic_note_field
+        - أُنشئ       → ic_calendar_plus  (حقل جديد: tv_created_at)
+        - آخر تعديل   → ic_edit_2         (حقل جديد: tv_updated_at)
+        - آخر عرض    → ic_visibility      (tv_last_accessed)
+      كل الأيقونات توضع في «أقصى اليمين بجانب الكلمة» (أوّل عنصر في الصف RTL).
+  v1.2: كل الكتابات من اليمين لليسار (RTL). لم يُغيَّر رقم الإصدار.
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layoutDirection="rtl"
+    app:cardBackgroundColor="?attr/bumBgCard"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeColor="?attr/bumBorder"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layoutDirection="rtl"
+        android:padding="14dp">
+
+        <!--
+          الصف العلوي (RTL):
+            - العنوان (tv_label) مع أيقونة المفتاح في اليمين.
+            - الأزرار (تعديل/حذف) في اليسار (نهاية السطر في RTL).
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical">
+
+            <!-- أيقونة المفتاح (أقصى اليمين) -->
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_key"
+                android:tint="?attr/bumAmber"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="label" />
+
+            <!-- العنوان يأخذ المساحة المتبقية -->
+            <TextView
+                android:id="@+id/tv_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical"
+                android:textDirection="rtl" />
+
+            <!-- مجموعة الأزرار (تعديل/حذف) في اليسار -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layoutDirection="ltr"
+                android:gravity="center_vertical"
+                android:layout_marginStart="6dp">
+
+                <ImageButton
+                    android:id="@+id/btn_edit"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_edit_2"
+                    android:background="@drawable/bg_icon_btn"
+                    android:tint="?attr/bumAmber"
+                    android:scaleType="centerInside"
+                    android:contentDescription="تعديل"
+                    android:layout_marginEnd="4dp" />
+
+                <ImageButton
+                    android:id="@+id/btn_delete"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_delete_outline"
+                    android:background="@drawable/bg_icon_btn"
+                    android:tint="?attr/bumTextDim"
+                    android:scaleType="centerInside"
+                    android:contentDescription="حذف" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- صف: اسم المستخدم — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:id="@+id/row_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_person_outline"
+                android:tint="?attr/bumTextSecondary"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="user" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/bumTextSecondary"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- صف: كلمة السر — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_secret"
+                android:tint="?attr/bumTextSecondary"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="secret" />
+
+            <TextView
+                android:id="@+id/tv_secret"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/bumTextSecondary"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+
+        <!-- صف: الفئة — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_label_outline"
+                android:tint="?attr/bumAmber"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="category" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:textColor="?attr/bumAmber"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- صف: الملاحظة — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="top"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_note_field"
+                android:tint="?attr/bumTextDim"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="2dp"
+                android:contentDescription="note" />
+
+            <TextView
+                android:id="@+id/tv_note"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:textColor="?attr/bumTextDim"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|top"
+                android:maxLines="3"
+                android:ellipsize="end" />
+        </LinearLayout>
+
+        <!-- صف: أُنشئ — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:id="@+id/row_created"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@drawable/ic_calendar_plus"
+                android:tint="?attr/bumTextHint"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="created" />
+
+            <TextView
+                android:id="@+id/tv_created_at"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:textColor="?attr/bumTextHint"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+
+        <!-- صف: آخر تعديل — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:id="@+id/row_updated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@drawable/ic_edit_2"
+                android:tint="?attr/bumTextHint"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="updated" />
+
+            <TextView
+                android:id="@+id/tv_updated_at"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:textColor="?attr/bumTextHint"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+
+        <!-- صف: آخر عرض — الأيقونة أقصى اليمين -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:src="@drawable/ic_visibility"
+                android:tint="?attr/bumTextHint"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="last viewed" />
+
+            <TextView
+                android:id="@+id/tv_last_accessed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="10sp"
+                android:textColor="?attr/bumTextHint"
+                android:textDirection="rtl"
+                android:textAlignment="viewStart"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

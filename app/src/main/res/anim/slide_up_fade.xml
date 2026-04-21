@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- حركة دخول هادئة (v1.2.1): إزاحة صغيرة 6dp ومدة 140ms. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator">
+
+    <translate
+        android:fromYDelta="6dp"
+        android:toYDelta="0"
+        android:duration="140" />
+
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="140" />
+
+</set>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- حرف B لـ Būm -->
+    <path
+        android:fillColor="#FF4D2D"
+        android:pathData="M32,20 L32,88 L60,88 C72,88 80,80 80,70 C80,63 76,57 70,54 C75,51 78,45 78,38 C78,28 71,20 60,20 Z M44,32 L58,32 C63,32 66,35 66,40 C66,45 63,48 58,48 L44,48 Z M44,60 L61,60 C67,60 70,63 70,69 C70,75 67,77 61,77 L44,77 Z" />
+
+    <!-- النقطة — مرسومة كـ path دائري بدلاً من circle -->
+    <path
+        android:fillColor="#FF4D2D"
+        android:pathData="M85,23 C87.76,23 90,25.24 90,28 C90,30.76 87.76,33 85,33 C82.24,33 80,30.76 80,28 C80,25.24 82.24,23 85,23 Z" />
+
+</vector>

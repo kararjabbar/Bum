@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مدة حياة اللحظة"
+            android:textColor="?attr/bumTextSecondary"
+            android:textSize="13sp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rg_expiry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/bumBorder"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <CheckBox
+            android:id="@+id/cb_destroy_on_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💥 تدمير ذاتي بعد القراءة"
+            android:textColor="?attr/bumTextPrimary"
+            android:textSize="14sp"
+            android:buttonTint="?attr/bumDanger" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="اللحظة ستبقى محفوظة، لكنها تختفي للأبد فور فتحها وإغلاقها."
+            android:textColor="?attr/bumTextDim"
+            android:textSize="11sp"
+            android:layout_marginStart="34dp" />
+    </LinearLayout>
+</ScrollView>

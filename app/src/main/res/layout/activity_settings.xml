@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bumBgPrimary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/bg_icon_btn"
+            android:tint="?attr/bumTextSecondary"
+            android:contentDescription="back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙  الإعدادات"
+            android:textColor="?attr/bumTextPrimary"
+            android:textSize="19sp"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_back"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/bumBorder"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨  الثيم"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/sp_theme"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏱  فترة السماح قبل القفل"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_grace_enabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تفعيل فترة السماح"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="14sp"
+                android:layout_marginTop="14dp"
+                android:thumbTint="?attr/bumAccent" />
+
+            <SeekBar
+                android:id="@+id/seek_grace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:progressTint="?attr/bumAccent"
+                android:thumbTint="?attr/bumAccent" />
+
+            <TextView
+                android:id="@+id/tv_grace_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/bumAmber"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/tv_grace_hint"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⌛  الصلاحية الافتراضية للحظات الجديدة"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/sp_default_expiry"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input_field"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_default_destroy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💥  تدمير افتراضي بعد القراءة"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="14sp"
+                android:layout_marginTop="14dp"
+                android:thumbTint="?attr/bumDanger" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡  وضع الموت عند الإغلاق"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_wipe_on_close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="تفعيل الوضع الانتحاري"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="14sp"
+                android:layout_marginTop="14dp"
+                android:thumbTint="?attr/bumDanger" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔐  كلمة المرور الاحتياطية"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_password_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/bumTextSecondary"
+                android:textSize="13sp"
+                android:layout_marginTop="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_set_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="تعيين كلمة مرور"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:backgroundTint="?attr/bumAccent"
+                app:cornerRadius="14dp"
+                android:layout_marginTop="12dp" />
+
+            <!-- =============== v1.2: كلمة الملاحظة الشبحية =============== -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👻  كلمة الملاحظة الشبحية"
+                android:textColor="?attr/bumTextPrimary"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/tv_ghost_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="اكتبها في شريط البحث لتُظهر الملاحظات الشبحية المخفية."
+                android:textColor="?attr/bumTextSecondary"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:lineSpacingMultiplier="1.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_change_ghost_code"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="تغيير الكلمة السرية"
+                android:textSize="14sp"
+                android:textColor="?attr/bumTextPrimary"
+                android:backgroundTint="?attr/bumBgElevated"
+                app:strokeColor="?attr/bumBorder"
+                app:strokeWidth="1dp"
+                app:cornerRadius="14dp"
+                android:layout_marginTop="12dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/bumBorder"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="26dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="☠  منطقة الخطر"
+                android:textColor="?attr/bumDanger"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="?attr/bumTextHint"
+                android:textSize="11sp"
+                android:layout_marginTop="0dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_wipe_all"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="مسح كامل: كل اللحظات + الخزنة"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:backgroundTint="?attr/bumDanger"
+                app:cornerRadius="14dp"
+                android:layout_marginTop="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:padding="16dp"
+                android:background="@drawable/bg_input_field">
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Būm v1.2.0"
+                    android:textColor="?attr/bumTextPrimary"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="?attr/bumTextSecondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="0dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="لا اتصال • لا سحابة • لا حافظة • AES-256-GCM"
+                android:textColor="?attr/bumTextHint"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

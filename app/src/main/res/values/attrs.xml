@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- سمات Būm للثيمات المتعددة (v1).
+         كل ثيم يحدد قيم هذه السمات. التخطيطات تستعمل ?attr/bumBgPrimary
+         بدلاً من @color/bum_bg_primary حتى يتبدل اللون بتبدّل الثيم. -->
+    <attr name="bumBgPrimary"     format="color" />
+    <attr name="bumBgSecondary"   format="color" />
+    <attr name="bumBgCard"        format="color" />
+    <attr name="bumBgElevated"    format="color" />
+    <attr name="bumAccent"        format="color" />
+    <attr name="bumAccentDim"     format="color" />
+    <attr name="bumAmber"         format="color" />
+    <attr name="bumTextPrimary"   format="color" />
+    <attr name="bumTextSecondary" format="color" />
+    <attr name="bumTextDim"       format="color" />
+    <attr name="bumTextHint"      format="color" />
+    <attr name="bumDanger"        format="color" />
+    <attr name="bumBorder"        format="color" />
+</resources>

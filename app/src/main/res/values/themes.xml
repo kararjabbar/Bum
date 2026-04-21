@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ================= Base Theme (مشترك لكل ثيمات Būm) ================= -->
+    <style name="Theme.Bum.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.Bum</item>
+        <item name="android:editTextStyle">@style/BumEditText</item>
+    </style>
+
+    <!-- ================= DEFAULT (الافتراضي — بنفسجي داكن) ================= -->
+    <style name="Theme.Bum" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/bum_bg_primary</item>
+        <item name="bumBgSecondary">@color/bum_bg_secondary</item>
+        <item name="bumBgCard">@color/bum_bg_card</item>
+        <item name="bumBgElevated">@color/bum_bg_elevated</item>
+        <item name="bumAccent">@color/bum_accent</item>
+        <item name="bumAccentDim">@color/bum_accent_dim</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/bum_border</item>
+
+        <item name="colorPrimary">@color/bum_accent</item>
+        <item name="colorPrimaryVariant">@color/bum_accent_dim</item>
+        <item name="colorOnPrimary">@color/bum_text_primary</item>
+        <item name="colorSecondary">@color/bum_amber</item>
+        <item name="colorSurface">@color/bum_bg_card</item>
+        <item name="colorOnSurface">@color/bum_text_primary</item>
+        <item name="android:colorBackground">@color/bum_bg_primary</item>
+        <item name="android:statusBarColor">@color/bum_bg_primary</item>
+        <item name="android:navigationBarColor">@color/bum_bg_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/bum_bg_primary</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+        <item name="android:textColorSecondary">@color/bum_text_secondary</item>
+        <item name="android:textColorHint">@color/bum_text_hint</item>
+    </style>
+
+    <!-- ================= AMOLED — أسود مطلق ================= -->
+    <style name="Theme.Bum.Amoled" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/amoled_bg_primary</item>
+        <item name="bumBgSecondary">@color/amoled_bg_primary</item>
+        <item name="bumBgCard">@color/amoled_bg_card</item>
+        <item name="bumBgElevated">@color/amoled_bg_card</item>
+        <item name="bumAccent">@color/bum_accent</item>
+        <item name="bumAccentDim">@color/bum_accent_dim</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/amoled_border</item>
+
+        <item name="colorPrimary">@color/bum_accent</item>
+        <item name="colorSurface">@color/amoled_bg_card</item>
+        <item name="android:colorBackground">@color/amoled_bg_primary</item>
+        <item name="android:statusBarColor">@color/amoled_bg_primary</item>
+        <item name="android:navigationBarColor">@color/amoled_bg_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/amoled_bg_primary</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= LIGHT — فاتح كامل ================= -->
+    <style name="Theme.Bum.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.Bum</item>
+        <item name="android:editTextStyle">@style/BumEditText</item>
+
+        <item name="bumBgPrimary">@color/light_bg_primary</item>
+        <item name="bumBgSecondary">@color/light_bg_primary</item>
+        <item name="bumBgCard">@color/light_bg_card</item>
+        <item name="bumBgElevated">@color/light_bg_card</item>
+        <item name="bumAccent">@color/light_accent</item>
+        <item name="bumAccentDim">@color/light_accent</item>
+        <item name="bumAmber">@color/light_amber</item>
+        <item name="bumTextPrimary">@color/light_text_primary</item>
+        <item name="bumTextSecondary">@color/light_text_secondary</item>
+        <item name="bumTextDim">@color/light_text_dim</item>
+        <item name="bumTextHint">@color/light_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/light_border</item>
+
+        <item name="colorPrimary">@color/light_accent</item>
+        <item name="colorSurface">@color/light_bg_card</item>
+        <item name="android:colorBackground">@color/light_bg_primary</item>
+        <item name="android:statusBarColor">@color/light_bg_primary</item>
+        <item name="android:navigationBarColor">@color/light_bg_primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/light_bg_primary</item>
+        <item name="android:textColorPrimary">@color/light_text_primary</item>
+    </style>
+
+    <!-- ================= HIGH CONTRAST ================= -->
+    <style name="Theme.Bum.HighContrast" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/hc_bg</item>
+        <item name="bumBgSecondary">@color/hc_bg</item>
+        <item name="bumBgCard">@color/hc_card</item>
+        <item name="bumBgElevated">@color/hc_card</item>
+        <item name="bumAccent">@color/hc_accent</item>
+        <item name="bumAccentDim">@color/hc_accent</item>
+        <item name="bumAmber">@color/hc_accent</item>
+        <item name="bumTextPrimary">@color/hc_text</item>
+        <item name="bumTextSecondary">@color/hc_text</item>
+        <item name="bumTextDim">@color/hc_text</item>
+        <item name="bumTextHint">@color/hc_text</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/hc_border</item>
+
+        <item name="colorPrimary">@color/hc_accent</item>
+        <item name="colorSurface">@color/hc_card</item>
+        <item name="android:colorBackground">@color/hc_bg</item>
+        <item name="android:statusBarColor">@color/hc_bg</item>
+        <item name="android:navigationBarColor">@color/hc_bg</item>
+        <item name="android:windowBackground">@color/hc_bg</item>
+        <item name="android:textColorPrimary">@color/hc_text</item>
+    </style>
+
+    <!-- ================= SCARLET ================= -->
+    <style name="Theme.Bum.Scarlet" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/scarlet_bg</item>
+        <item name="bumBgSecondary">@color/scarlet_bg</item>
+        <item name="bumBgCard">@color/scarlet_card</item>
+        <item name="bumBgElevated">@color/scarlet_card</item>
+        <item name="bumAccent">@color/scarlet_accent</item>
+        <item name="bumAccentDim">@color/scarlet_accent</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/scarlet_border</item>
+        <item name="colorPrimary">@color/scarlet_accent</item>
+        <item name="colorSurface">@color/scarlet_card</item>
+        <item name="android:colorBackground">@color/scarlet_bg</item>
+        <item name="android:statusBarColor">@color/scarlet_bg</item>
+        <item name="android:navigationBarColor">@color/scarlet_bg</item>
+        <item name="android:windowBackground">@color/scarlet_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= CYBER ================= -->
+    <style name="Theme.Bum.Cyber" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/cyber_bg</item>
+        <item name="bumBgSecondary">@color/cyber_bg</item>
+        <item name="bumBgCard">@color/cyber_card</item>
+        <item name="bumBgElevated">@color/cyber_card</item>
+        <item name="bumAccent">@color/cyber_accent</item>
+        <item name="bumAccentDim">@color/cyber_accent</item>
+        <item name="bumAmber">@color/cyber_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/cyber_border</item>
+        <item name="colorPrimary">@color/cyber_accent</item>
+        <item name="colorSurface">@color/cyber_card</item>
+        <item name="android:colorBackground">@color/cyber_bg</item>
+        <item name="android:statusBarColor">@color/cyber_bg</item>
+        <item name="android:navigationBarColor">@color/cyber_bg</item>
+        <item name="android:windowBackground">@color/cyber_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= MIDNIGHT ================= -->
+    <style name="Theme.Bum.Midnight" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/midnight_bg</item>
+        <item name="bumBgSecondary">@color/midnight_bg</item>
+        <item name="bumBgCard">@color/midnight_card</item>
+        <item name="bumBgElevated">@color/midnight_card</item>
+        <item name="bumAccent">@color/midnight_accent</item>
+        <item name="bumAccentDim">@color/midnight_accent</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/midnight_border</item>
+        <item name="colorPrimary">@color/midnight_accent</item>
+        <item name="colorSurface">@color/midnight_card</item>
+        <item name="android:colorBackground">@color/midnight_bg</item>
+        <item name="android:statusBarColor">@color/midnight_bg</item>
+        <item name="android:navigationBarColor">@color/midnight_bg</item>
+        <item name="android:windowBackground">@color/midnight_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= FOREST ================= -->
+    <style name="Theme.Bum.Forest" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/forest_bg</item>
+        <item name="bumBgSecondary">@color/forest_bg</item>
+        <item name="bumBgCard">@color/forest_card</item>
+        <item name="bumBgElevated">@color/forest_card</item>
+        <item name="bumAccent">@color/forest_accent</item>
+        <item name="bumAccentDim">@color/forest_accent</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/forest_border</item>
+        <item name="colorPrimary">@color/forest_accent</item>
+        <item name="colorSurface">@color/forest_card</item>
+        <item name="android:colorBackground">@color/forest_bg</item>
+        <item name="android:statusBarColor">@color/forest_bg</item>
+        <item name="android:navigationBarColor">@color/forest_bg</item>
+        <item name="android:windowBackground">@color/forest_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= SOLAR ================= -->
+    <style name="Theme.Bum.Solar" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/solar_bg</item>
+        <item name="bumBgSecondary">@color/solar_bg</item>
+        <item name="bumBgCard">@color/solar_card</item>
+        <item name="bumBgElevated">@color/solar_card</item>
+        <item name="bumAccent">@color/solar_accent</item>
+        <item name="bumAccentDim">@color/solar_accent</item>
+        <item name="bumAmber">@color/solar_accent</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/solar_border</item>
+        <item name="colorPrimary">@color/solar_accent</item>
+        <item name="colorSurface">@color/solar_card</item>
+        <item name="android:colorBackground">@color/solar_bg</item>
+        <item name="android:statusBarColor">@color/solar_bg</item>
+        <item name="android:navigationBarColor">@color/solar_bg</item>
+        <item name="android:windowBackground">@color/solar_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ================= ROSE ================= -->
+    <style name="Theme.Bum.Rose" parent="Theme.Bum.Base">
+        <item name="bumBgPrimary">@color/rose_bg</item>
+        <item name="bumBgSecondary">@color/rose_bg</item>
+        <item name="bumBgCard">@color/rose_card</item>
+        <item name="bumBgElevated">@color/rose_card</item>
+        <item name="bumAccent">@color/rose_accent</item>
+        <item name="bumAccentDim">@color/rose_accent</item>
+        <item name="bumAmber">@color/bum_amber</item>
+        <item name="bumTextPrimary">@color/bum_text_primary</item>
+        <item name="bumTextSecondary">@color/bum_text_secondary</item>
+        <item name="bumTextDim">@color/bum_text_dim</item>
+        <item name="bumTextHint">@color/bum_text_hint</item>
+        <item name="bumDanger">@color/bum_danger</item>
+        <item name="bumBorder">@color/rose_border</item>
+        <item name="colorPrimary">@color/rose_accent</item>
+        <item name="colorSurface">@color/rose_card</item>
+        <item name="android:colorBackground">@color/rose_bg</item>
+        <item name="android:statusBarColor">@color/rose_bg</item>
+        <item name="android:navigationBarColor">@color/rose_bg</item>
+        <item name="android:windowBackground">@color/rose_bg</item>
+        <item name="android:textColorPrimary">@color/bum_text_primary</item>
+    </style>
+
+    <!-- ===== Splash (يستخدم الثيم الافتراضي دائماً) =====
+         ملاحظة: أُزيل windowTranslucentStatus/Navigation لأن النوافذ الشفافة
+         قد تُضعف ضمانة FLAG_SECURE في بعض ROMs. -->
+    <style name="Theme.Bum.Splash" parent="Theme.Bum">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="WindowAnimation.Bum" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_up_fade</item>
+        <item name="android:activityOpenExitAnimation">@android:anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_down_fade</item>
+    </style>
+
+    <style name="BumEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">?attr/bumTextPrimary</item>
+        <item name="android:textColorHint">?attr/bumTextHint</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <style name="BumAlertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="android:background">?attr/bumBgCard</item>
+        <item name="android:textColorPrimary">?attr/bumTextPrimary</item>
+        <item name="colorPrimary">?attr/bumAccent</item>
+    </style>
+
+    <style name="BumToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/bumBgPrimary</item>
+        <item name="titleTextColor">?attr/bumTextPrimary</item>
+    </style>
+
+</resources>

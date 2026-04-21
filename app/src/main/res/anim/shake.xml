@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- اهتزاز خفيف جداً (v1.2.1): مدى 3dp ودورة واحدة فقط — تنبيه لطيف. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/cycle_interpolator">
+
+    <translate
+        android:fromXDelta="-3dp"
+        android:toXDelta="3dp"
+        android:duration="280"
+        android:repeatCount="1"
+        android:repeatMode="reverse" />
+
+</set>

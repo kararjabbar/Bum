@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== ألوان Būm الأساسية (الثيم الافتراضي) ===== -->
+    <color name="bum_bg_primary">#0A0A0F</color>
+    <color name="bum_bg_secondary">#111118</color>
+    <color name="bum_bg_card">#16161F</color>
+    <color name="bum_bg_elevated">#1C1C28</color>
+
+    <color name="bum_accent">#FF4D2D</color>
+    <color name="bum_accent_dim">#CC3D22</color>
+    <color name="bum_accent_glow">#FF6B4A</color>
+
+    <color name="bum_amber">#FFB830</color>
+    <color name="bum_amber_dim">#CC9326</color>
+
+    <color name="bum_text_primary">#F0EDE8</color>
+    <color name="bum_text_secondary">#B8B4AE</color>
+    <color name="bum_text_dim">#6B6860</color>
+    <color name="bum_text_hint">#3D3C38</color>
+
+    <color name="bum_danger">#FF2D2D</color>
+    <color name="bum_danger_dim">#CC2222</color>
+
+    <color name="bum_border">#222230</color>
+    <color name="bum_border_accent">#FF4D2D40</color>
+
+    <color name="bum_shadow">#80000000</color>
+    <color name="bum_glow_accent">#33FF4D2D</color>
+
+    <color name="bum_status_bar">#0A0A0F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- ===================== AMOLED — أسود مطلق ===================== -->
+    <color name="amoled_bg_primary">#000000</color>
+    <color name="amoled_bg_card">#0A0A0A</color>
+    <color name="amoled_border">#1A1A1A</color>
+
+    <!-- ===================== LIGHT — فاتح كامل ===================== -->
+    <color name="light_bg_primary">#FAFAF7</color>
+    <color name="light_bg_card">#FFFFFF</color>
+    <color name="light_text_primary">#18181B</color>
+    <color name="light_text_secondary">#52525B</color>
+    <color name="light_text_dim">#A1A1AA</color>
+    <color name="light_text_hint">#D4D4D8</color>
+    <color name="light_border">#E4E4E7</color>
+    <color name="light_accent">#D63B1F</color>
+    <color name="light_amber">#B87700</color>
+
+    <!-- ===================== HIGH CONTRAST ===================== -->
+    <color name="hc_bg">#000000</color>
+    <color name="hc_card">#000000</color>
+    <color name="hc_text">#FFFFFF</color>
+    <color name="hc_accent">#FFEE00</color>
+    <color name="hc_border">#FFFFFF</color>
+
+    <!-- ===================== SCARLET (قرمزي ناري) ===================== -->
+    <color name="scarlet_bg">#140404</color>
+    <color name="scarlet_card">#1F0808</color>
+    <color name="scarlet_accent">#E63946</color>
+    <color name="scarlet_border">#3A1010</color>
+
+    <!-- ===================== CYBER (سايبر نيون) ===================== -->
+    <color name="cyber_bg">#050814</color>
+    <color name="cyber_card">#0B1026</color>
+    <color name="cyber_accent">#00E5FF</color>
+    <color name="cyber_amber">#FF00D4</color>
+    <color name="cyber_border">#13214A</color>
+
+    <!-- ===================== MIDNIGHT (بنفسجي ملكي) ===================== -->
+    <color name="midnight_bg">#0A0418</color>
+    <color name="midnight_card">#140A26</color>
+    <color name="midnight_accent">#9D4EDD</color>
+    <color name="midnight_border">#221440</color>
+
+    <!-- ===================== FOREST (غابات داكنة) ===================== -->
+    <color name="forest_bg">#081410</color>
+    <color name="forest_card">#0E1F18</color>
+    <color name="forest_accent">#2ECC71</color>
+    <color name="forest_border">#143828</color>
+
+    <!-- ===================== SOLAR (ذهبي شمسي) ===================== -->
+    <color name="solar_bg">#130F04</color>
+    <color name="solar_card">#1F1808</color>
+    <color name="solar_accent">#FFD60A</color>
+    <color name="solar_border">#3A2C10</color>
+
+    <!-- ===================== ROSE (وردي داكن) ===================== -->
+    <color name="rose_bg">#180810</color>
+    <color name="rose_card">#261022</color>
+    <color name="rose_accent">#FF4D88</color>
+    <color name="rose_border">#3A1A2E</color>
+</resources>

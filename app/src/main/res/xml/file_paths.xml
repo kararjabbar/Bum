@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- مسار مؤقت للكاميرا — يُحذف عند الإغلاق -->
+    <files-path name="captures" path="captures/" />
+    <!-- v1: مسار مؤقت لفتح المرفقات المفكوكة التشفير عبر تطبيقات خارجية -->
+    <cache-path name="decrypted" path="decrypted/" />
+    <cache-path name="cache" path="." />
+</paths>

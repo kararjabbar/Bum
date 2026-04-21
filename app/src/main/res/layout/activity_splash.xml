@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bumBgPrimary">
+
+    <!-- خلفية التدرج — تُطبَّق برمجياً بلون الثيم الحالي -->
+    <View
+        android:id="@+id/view_glow_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- الشعار الرئيسي -->
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Būm"
+        android:textSize="96sp"
+        android:textColor="?attr/bumTextPrimary"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.1"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <!-- النقطة الحمراء تحت الشعار -->
+    <View
+        android:id="@+id/view_dot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_circle_accent"
+        app:layout_constraintTop_toBottomOf="@id/tv_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <!-- الـ tagline -->
+    <TextView
+        android:id="@+id/tv_tagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="اكتب. أغلق. يموت."
+        android:textSize="16sp"
+        android:textColor="?attr/bumTextDim"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0.2"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/view_dot"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- نسخة التطبيق -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v1.2.0"
+        android:textSize="11sp"
+        android:textColor="?attr/bumTextHint"
+        android:fontFamily="sans-serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- أيقونة شبح بسيطة (v1.2) — لزر وضع الملاحظة الشبحية -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/bumTextSecondary">
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,2C7.58,2 4,5.58 4,10v10.5c0,0.55 0.45,1 1,1c0.24,0 0.47,-0.08 0.66,-0.23L8,19.25l2.34,2.02c0.38,0.31 0.95,0.31 1.33,0L14,19.25l2.34,2.02c0.38,0.31 0.95,0.31 1.33,0l2.34,-2.02l2.34,2.02C22.54,21.42 22.76,21.5 23,21.5H19c0.55,0 1,-0.45 1,-1V10c0,-4.42 -3.58,-8 -8,-8zM9.5,11c-0.83,0 -1.5,-0.67 -1.5,-1.5S8.67,8 9.5,8s1.5,0.67 1.5,1.5S10.33,11 9.5,11zM14.5,11c-0.83,0 -1.5,-0.67 -1.5,-1.5S13.67,8 14.5,8s1.5,0.67 1.5,1.5S15.33,11 14.5,11z" />
+</vector>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    v1.4:
+    • كل حقول الكتابة (الاسم/التسمية، اسم المستخدم، القيمة السرية، الملاحظة)
+      تستخدم نفس اتجاه حقل "الفئة" — أي الاتجاه الطبيعي للّوكيل (RTL للعربية) مع
+      gravity=start|center_vertical حتى لا يختلف التنسيق بين الحقول.
+    • تمّت إزالة الإجبار على textDirection="rtl" و layoutDirection="rtl" من اسم
+      المستخدم والقيمة السرية (كانت تُحدث تعارضاً مع المحتوى اللاتيني).
+    • الحقل السري: inputType غير مرتبط بـ textPassword لمنع Google Password
+      Manager من التقاطه — نستخدم PasswordTransformationMethod من داخل الكود.
+    • importantForAutofill="noExcludeDescendants" على الجذر لضمان عدم مشاركة
+      أي حقل مع أي خدمة autofill (Google/Samsung Pass/...).
+    • autofillHints=""  و  importantForContentCapture="no" كطبقة إضافية.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:importantForAutofill="noExcludeDescendants"
+    tools:importantForContentCapture="no">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:importantForAutofill="noExcludeDescendants">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الاسم / التسمية"
+            android:textColor="?attr/bumTextDim"
+            android:textSize="11sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/et_label"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="مثال: Gmail، حساب البنك، OpenAI API"
+            android:textColor="?attr/bumTextPrimary"
+            android:textColorHint="?attr/bumTextHint"
+            android:textSize="14sp"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true"
+            android:gravity="start|center_vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            tools:importantForContentCapture="no" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اسم المستخدم / الإيميل (اختياري)"
+            android:layout_marginTop="14dp"
+            android:textColor="?attr/bumTextDim"
+            android:textSize="11sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="example@email.com أو username"
+            android:textColor="?attr/bumTextPrimary"
+            android:textColorHint="?attr/bumTextHint"
+            android:textSize="14sp"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true"
+            android:gravity="start|center_vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            tools:importantForContentCapture="no" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الفئة"
+            android:layout_marginTop="14dp"
+            android:textColor="?attr/bumTextDim"
+            android:textSize="11sp"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <Spinner
+                android:id="@+id/sp_category"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input_field"
+                android:importantForAutofill="no" />
+
+            <ImageButton
+                android:id="@+id/btn_add_category"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_add_round"
+                android:scaleType="centerInside"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="?attr/bumAccent"
+                android:contentDescription="إضافة فئة جديدة" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="6dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="القيمة السرية / كلمة المرور"
+                    android:textColor="?attr/bumTextDim"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="عرض أو توليد بشكل سريع من نفس السطر"
+                    android:textColor="?attr/bumTextHint"
+                    android:textSize="10sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_generate_password"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_magic"
+                android:scaleType="centerInside"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="?attr/bumAmber"
+                android:contentDescription="توليد كلمة مرور قوية" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_input_field"
+            android:gravity="center_vertical">
+
+            <!--
+                v1.4: الحقل السري
+                  • inputType=text|textNoSuggestions  (وليس textPassword)
+                    لمنع Google Password Manager/Autofill من التعرف عليه كحقل كلمة مرور.
+                    الإخفاء يتم عبر PasswordTransformationMethod من الكود.
+                  • importantForAutofill=noExcludeDescendants  يمنع Autofill framework
+                    من قراءة القيمة أو تعبئتها حتى لو كان الجهاز دون اتصال بالإنترنت.
+                  • autofillHints=""  يمسح أي تلميح Autofill.
+                  • الاتجاه: موحّد مع بقية الحقول (start|center_vertical).
+            -->
+            <EditText
+                android:id="@+id/et_secret"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="sk-xxxx... أو كلمة مرور"
+                android:textColor="?attr/bumTextPrimary"
+                android:textColorHint="?attr/bumTextHint"
+                android:textSize="14sp"
+                android:inputType="text|textNoSuggestions|textVisiblePassword"
+                android:singleLine="true"
+                android:fontFamily="monospace"
+                android:importantForAutofill="noExcludeDescendants"
+                android:autofillHints=""
+                android:gravity="start|center_vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="6dp"
+                tools:importantForContentCapture="no" />
+
+            <ImageButton
+                android:id="@+id/btn_toggle_secret"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_visibility"
+                android:scaleType="centerInside"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="?attr/bumTextSecondary"
+                android:contentDescription="إظهار أو إخفاء القيمة" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_strength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="11sp"
+            android:textColor="?attr/bumTextDim" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ملاحظة (اختياري)"
+            android:layout_marginTop="14dp"
+            android:textColor="?attr/bumTextDim"
+            android:textSize="11sp"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/et_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="52dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="سياق الاستخدام..."
+            android:textColor="?attr/bumTextPrimary"
+            android:textColorHint="?attr/bumTextHint"
+            android:textSize="14sp"
+            android:inputType="textMultiLine|textNoSuggestions"
+            android:maxLines="3"
+            android:gravity="start|top"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:importantForAutofill="no"
+            android:autofillHints=""
+            tools:importantForContentCapture="no" />
+
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textSize="11sp"
+            android:textColor="?attr/bumTextDim"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

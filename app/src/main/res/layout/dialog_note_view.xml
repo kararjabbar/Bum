@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <!-- v1.4: ارتفاع تكيّفي + scaleType=fitCenter لإظهار الصورة بدقتها الكاملة
+             دون قصّ. adjustViewBounds يضمن احترام نسبة الأبعاد الأصلية. -->
+        <ImageView
+            android:id="@+id/iv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:maxHeight="480dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_image_placeholder"
+            android:visibility="gone"
+            android:contentDescription="image" />
+
+        <!-- النص (أو ملاحظة نصية مرفقة مع الصورة) -->
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/bumTextPrimary"
+            android:textSize="17sp"
+            android:lineSpacingMultiplier="1.5"
+            android:gravity="start"
+            android:textIsSelectable="true"
+            android:layout_marginTop="8dp" />
+
+        <!-- قائمة المرفقات المشفّرة (v1) -->
+        <LinearLayout
+            android:id="@+id/layout_attachments_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_meta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/bumTextDim"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+</ScrollView>

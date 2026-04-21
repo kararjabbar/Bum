@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  scale_bounce — ضغط ناعم جداً (v1.2.1).
+  v1.2.1: خُفّض تأثير التكبير إلى 1.008 والمدة أقصر (40ms) — نبضة شبه غير محسوسة
+  لتجنّب أي شعور بحركة قوية عند الضغط على الأزرار.
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="1.008"
+        android:fromYScale="1.0"
+        android:toYScale="1.008"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="40"
+        android:interpolator="@android:anim/decelerate_interpolator" />
+
+    <scale
+        android:fromXScale="1.008"
+        android:toXScale="1.0"
+        android:fromYScale="1.008"
+        android:toYScale="1.0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="60"
+        android:startOffset="40"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />
+
+</set>

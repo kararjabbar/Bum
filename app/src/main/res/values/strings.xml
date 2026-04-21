@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Būm</string>
+
+    <!-- Splash -->
+    <string name="tagline">اكتب. احفظ. تحكم بالعمر.</string>
+    <string name="security_warning">جهازك غير آمن. لا يمكن تشغيل Būm.</string>
+
+    <!-- Biometric -->
+    <string name="biometric_title">Būm — تحقق من هويتك</string>
+    <string name="biometric_subtitle">لحماية لحظتك السرية</string>
+    <string name="biometric_cancel">إلغاء</string>
+    <string name="auth_title">لحظتك في أمان</string>
+    <string name="auth_subtitle">أثبت أنك أنت</string>
+    <string name="btn_authenticate">فتح بالبصمة</string>
+
+    <!-- Main -->
+    <string name="greeting_morning">صباح التمرد</string>
+    <string name="greeting_afternoon">عصر الأفكار الهادئة</string>
+    <string name="greeting_evening">مساء الفناء الجميل</string>
+    <string name="greeting_night">ليل الأسرار</string>
+
+    <string name="status_empty">لم تكتب لحظتك بعد</string>
+    <string name="status_written">لحظتك محفوظة — حتى الإغلاق</string>
+
+    <string name="btn_write_moment">اكتب لحظة جديدة</string>
+    <string name="btn_view_moment">عش لحظتك</string>
+
+    <string name="written_at">كُتبت الساعة %1$s</string>
+    <string name="will_die_on_close">⚡ ستُمحى عند الإغلاق</string>
+    <string name="wipe_count">💀 %1$d انتحار رقمي</string>
+
+    <!-- Write -->
+    <string name="hint_write">اكتب ما لا تجرؤ على قوله لأحد…</string>
+    <string name="btn_save">احفظ اللحظة</string>
+    <string name="btn_camera">التقط لحظة</string>
+    <string name="btn_capture">التقط</string>
+    <string name="btn_retake">إعادة</string>
+    <string name="btn_cancel">إلغاء</string>
+    <string name="btn_done">تم</string>
+
+    <string name="wipe_warning">⚡ محمية بتشفير قوي</string>
+    <string name="save_success">✓ حُفظت</string>
+
+    <string name="content_unavailable">المحتوى غير متاح — ربما مُحي مسبقاً</string>
+
+    <!-- Camera -->
+    <string name="camera_permission_denied">يحتاج Būm إذن الكاميرا للتقاط لحظتك</string>
+    <string name="camera_error">خطأ في تشغيل الكاميرا</string>
+    <string name="capture_error">فشل التقاط الصورة</string>
+
+    <!-- Dialog -->
+    <string name="dialog_philosophy_title">ما هو Būm؟</string>
+
+    <!-- Vault / Settings -->
+    <string name="title_vault">مخزن المفاتيح</string>
+    <string name="title_settings">الإعدادات</string>
+
+    <!-- v1.2 -->
+    <string name="search_hint">بحث في اللحظات…</string>
+    <string name="ghost_mode_enabled">👻 وضع الشبح مُفعَّل</string>
+    <string name="ghost_mode_disabled">تمّ إيقاف وضع الشبح</string>
+    <string name="attachment_viewer_title">عرض مدمج</string>
+    <string name="export_success">✓ تم تصدير الملف بأمان</string>
+</resources>

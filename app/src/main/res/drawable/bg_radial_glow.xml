@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  bg_radial_glow (v1) — قاعدة شفافة فقط.
+  اللون الفعلي يُطبَّق برمجياً في MainActivity/SplashActivity ليتبع لون الثيم الحالي.
+  (لا يمكن استخدام ?attr/ داخل gradient في drawable XML).
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

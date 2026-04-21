@@ -1,0 +1,35 @@
+# Build outputs
+build/
+app/build/
+.gradle/
+*.apk
+*.aab
+*.ap_
+out/
+
+# Signing — NEVER upload these
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# Local machine config
+local.properties
+*.log
+captures/
+
+# IDE - Android Studio / IntelliJ
+.idea/
+*.iml
+*.xml.bak
+.navigation/
+lint-baseline.xml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Sensitive configs
+secrets.properties
+google-services.json

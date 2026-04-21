@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    network_security_config.xml
+    يمنع أي اتصال شبكي — Būm لا يتصل بالإنترنت أبداً
+-->
+<network-security-config>
+    <!-- منع جميع حركة HTTP غير المشفرة -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <!-- تعطيل أي domain — لا يوجد سيرفر على الإطلاق -->
+</network-security-config>

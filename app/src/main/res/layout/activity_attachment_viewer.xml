@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    العارض المدمج (v1.3) — شاشة كاملة + دعم كل الملفات:
+    v1.3 updates:
+    - AutoHide = 5s (بدل 3s) + يُعاد الضبط من آخر تفاعل.
+    - video_overlay مرفوع فوق tv_badge (لا تداخل).
+    - شاشة عرض حديثة للملف الصوتي (قرص دوّار + ميزان صوت مُتحرّك + تدرّج لوني).
+    - أزرار الفيديو لا تظهر مع الصور/النصوص (Bug fix).
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/touch_surface"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- ================ منطقة عرض المحتوى (شاشة كاملة) ================ -->
+    <FrameLayout
+        android:id="@+id/content_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- عارض الصور (مع Zoom) -->
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="matrix"
+            android:visibility="gone"
+            android:contentDescription="attachment image" />
+
+        <!-- عارض الفيديو / الصوت -->
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <!-- ================ v1.3: شاشة عرض حديثة للملف الصوتي ================ -->
+        <!-- تظهر فقط عند تشغيل ملف صوتي — قرص دوّار + ميزان صوت + اسم الملف -->
+        <FrameLayout
+            android:id="@+id/audio_modern_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_audio_gradient"
+            android:visibility="gone">
+
+            <!-- قرص الموسيقى (Vinyl Disc) في منتصف الشاشة -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <!-- هالة متوهّجة حول القرص -->
+                <View
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_audio_disc_glow" />
+
+                <ImageView
+                    android:id="@+id/audio_disc"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_audio_disc"
+                    android:contentDescription="audio disc" />
+            </FrameLayout>
+
+            <!-- اسم الملف + المعلومات في الأعلى -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="120dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎵  جاري التشغيل"
+                    android:textColor="#FFB830"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.15"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:id="@+id/tv_audio_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_audio_meta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#B0FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+
+            <!--
+              ميزان الصوت المتحرّك (Equalizer Bars) في الأسفل قبل الـ overlay.
+              v1.2 (update): عدد الأعمدة رُفع من 5 → 21 عموداً، بارتفاع قاعدي موحّد،
+              وتحريكها يتم برمجياً في AttachmentViewerActivity (يفضّل Visualizer
+              الحقيقي، وإلا نمط موجيّ ناعم متزامن مع موضع التشغيل).
+            -->
+            <LinearLayout
+                android:id="@+id/audio_bars_container"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:orientation="horizontal"
+                android:gravity="bottom|center_horizontal"
+                android:layout_marginBottom="210dp">
+
+                <View android:id="@+id/audio_bar_1"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_2"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_3"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_4"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_5"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_6"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_7"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_8"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_9"  android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_10" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_11" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_12" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_13" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_14" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_15" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_16" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_17" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_18" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_19" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_20" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+                <View android:id="@+id/audio_bar_21" android:layout_width="5dp" android:layout_height="10dp" android:layout_marginStart="2dp" android:layout_marginEnd="2dp" android:background="@drawable/bg_audio_bar" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- عارض HTML / SVG -->
+        <WebView
+            android:id="@+id/web_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#0A0A0F"
+            android:visibility="gone" />
+
+        <!-- عارض النصوص + HEX (قابل للتمرير) -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:padding="14dp">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="?attr/bumTextPrimary"
+                android:fontFamily="monospace"
+                android:textIsSelectable="true"
+                android:lineSpacingMultiplier="1.25"
+                android:background="@drawable/bg_input_field"
+                android:padding="14dp"
+                android:visibility="gone" />
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- رسالة نوع غير مدعوم / خطأ -->
+        <TextView
+            android:id="@+id/tv_unsupported"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="?attr/bumTextDim"
+            android:padding="28dp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- ================ Speed Badge (يظهر أثناء التسريع) ================ -->
+    <TextView
+        android:id="@+id/tv_speed_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="110dp"
+        android:text="⏩ 2x"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:background="#CC000000"
+        android:visibility="gone" />
+
+    <!-- ================ Badge في الأسفل (يختفي تلقائياً) ================ -->
+    <!-- v1.3: نضع tv_badge قبل video_overlay حتى يكون video_overlay فوقه بصرياً -->
+    <TextView
+        android:id="@+id/tv_badge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="🔒  عرض مدمج — الملف لا يخرج من التطبيق"
+        android:textSize="10sp"
+        android:textColor="#DDDDDD"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        android:background="#CC000000" />
+
+    <!-- ================ Video Overlay (يختفي تلقائياً) — فوق الـ badge ================ -->
+    <!-- v1.3: paddingBottom زيد إلى 44dp ليصعد فوق شريط "عرض مدمج" -->
+    <LinearLayout
+        android:id="@+id/video_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="44dp"
+        android:background="#BF000000"
+        android:visibility="gone">
+
+        <!-- صف أزرار التحكم: تراجع 5 — تشغيل/إيقاف — تقديم 5 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="10dp">
+
+            <ImageButton
+                android:id="@+id/btn_rewind_5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_replay_5"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="#FFFFFF"
+                android:padding="10dp"
+                android:contentDescription="rewind 5 seconds" />
+
+            <Space
+                android:layout_width="22dp"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/btn_play_pause"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:src="@drawable/ic_pause"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="#FFFFFF"
+                android:padding="14dp"
+                android:contentDescription="play/pause" />
+
+            <Space
+                android:layout_width="22dp"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/btn_forward_5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_forward_5"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="#FFFFFF"
+                android:padding="10dp"
+                android:contentDescription="forward 5 seconds" />
+        </LinearLayout>
+
+        <!-- صف الأوقات -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:id="@+id/tv_time_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:text="0:00" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="اضغط مطوّلاً لتسريع التشغيل ×2"
+                android:textSize="10sp"
+                android:textColor="#99FFFFFF"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_time_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:text="0:00" />
+        </LinearLayout>
+
+        <!-- شريط التقدم -->
+        <SeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:paddingBottom="2dp"
+            android:thumbTint="?attr/bumAmber"
+            android:progressTint="?attr/bumAmber"
+            android:progressBackgroundTint="#55FFFFFF"
+            android:max="1000"
+            android:progress="0" />
+    </LinearLayout>
+
+    <!-- ================ Header (يختفي تلقائياً) ================ -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="12dp"
+        android:background="#CC000000">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@drawable/bg_icon_btn"
+            android:tint="#FFFFFF"
+            android:contentDescription="back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:id="@+id/tv_filename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:ellipsize="middle" />
+
+            <TextView
+                android:id="@+id/tv_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="#AAAAAA" />
+        </LinearLayout>
+
+        <!-- زر التصدير العكسي (Secure Export) -->
+        <ImageButton
+            android:id="@+id/btn_export"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="9dp"
+            android:src="@drawable/ic_download"
+            android:scaleType="centerInside"
+            android:background="@drawable/bg_icon_btn"
+            android:tint="?attr/bumAmber"
+            android:contentDescription="export" />
+    </LinearLayout>
+
+</FrameLayout>
